@@ -18,13 +18,10 @@ jobs:
       with:
         ndk-version: r25c
 
-    - name: Force Generate Gradle Wrapper
-      run: |
-        gradle wrapper --gradle-version 7.5
-        chmod +x gradlew
-
     - name: Build with Gradle
-      run: ./gradlew assembleDebug
+      run: |
+        chmod +x gradlew
+        ./gradlew :app:assembleDebug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
